@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Tuple, List, Optional
+from typing import Tuple, Dict, Optional
 from z3 import *
 
 
@@ -45,34 +45,51 @@ class LogicMemory:
     def __init__(self, fact_limit: int = 20, rule_limit: int = 20):
         self.fact_limit = fact_limit
         self.rule_limit = rule_limit
-        self.facts: List[Fact] = []
-        self.rules: List[Rule] = []
+
+        # keys are the actual stored Facts/Rules
+        # values are metadata dictionaries for future scoring/counting
+        self.facts: Dict[Fact, Dict[str, Any]] = {}
+        self.rules: Dict[Rule, Dict[str, Any]] = {}
+
+    # checks is we store this exact fact
+    def has_fact(self, fact: Fact) -> bool:
+        return fact in self.facts
+
+    def has_rule(self, rule: Rule) -> bool:
+        return rule in self.rules
 
     def add_fact(self, fact: Fact):
-        if fact in self.facts:
+        if self.has_fact(fact):
             return
 
         if len(self.facts) >= self.fact_limit:
-            self.facts.pop(0)
+            oldest_fact = next(iter(self.facts))
+            del self.facts[oldest_fact]
 
-        self.facts.append(fact)
+        self.facts[fact] = {
+            "score": 0.0
+        }
 
     def remove_fact(self, fact: Fact):
-        if fact in self.facts:
-            self.facts.remove(fact)
+        if self.has_fact(fact):
+            del self.facts[fact]
 
     def add_rule(self, rule: Rule):
-        if rule in self.rules:
+        if self.has_rule(rule):
             return
 
         if len(self.rules) >= self.rule_limit:
-            self.rules.pop(0)
+            oldest_rule = next(iter(self.rules))
+            del self.rules[oldest_rule]
 
-        self.rules.append(rule)
+        self.rules[rule] = {
+            "support_count": 1,
+            "score": 0.0,
+        }
 
     def remove_rule(self, rule: Rule):
-        if rule in self.rules:
-            self.rules.remove(rule)
+        if self.has_rule(rule):
+            del self.rules[rule]
 
     def build_solver(self):
         s = Solver()
@@ -113,44 +130,48 @@ class LogicMemory:
         return "Unknown"
 
     def show_memory(self):
-        print("Facts:")
-        for fact in self.facts:
-            print(" ", fact)
-
-        print("Rules:")
-        for rule in self.rules:
-            print(" ", rule)
+        self.show_facts()
+        self.show_rules()
 
     def show_facts(self):
         print("Facts:")
-        for fact in self.facts:
-            print(" ", fact)
+        for fact, metadata in self.facts.items():
+            print(" ", fact, metadata)
 
     def show_rules(self):
         print("Rules:")
-        for rule in self.rules:
-            print(" ", rule)
+        for rule, metadata in self.rules.items():
+            print(" ", rule, metadata)
 
 
 if __name__ == "__main__":
     memory = LogicMemory(fact_limit=20, rule_limit=5)
 
-    memory.add_fact(Fact("greater", ("a", "b")))
-    memory.add_fact(Fact("greater", ("b", "c")))
+    greater_a_b = Fact("greater", ("a", "b"))
+    greater_b_c = Fact("greater", ("b", "c"))
+    greater_a_c = Fact("greater", ("a", "c"))
+    greater_c_a = Fact("greater", ("c", "a"))
 
-    memory.add_rule(
-        Rule(
-            premises=(
-                Fact("greater", ("a", "b")),
-                Fact("greater", ("b", "c")),
-            ),
-            conclusion=Fact("greater", ("a", "c")),
-            name="example_transitive_greater"
-        )
+    memory.add_fact(greater_a_b)
+    memory.add_fact(greater_b_c)
+
+    transitive_example = Rule(
+        premises=(
+            greater_a_b,
+            greater_b_c,
+        ),
+        conclusion=greater_a_c,
+        name="example_transitive_greater"
     )
+
+    memory.add_rule(transitive_example)
 
     memory.show_memory()
 
-    print("Query greater(a, b):", memory.ask(Fact("greater", ("a", "b"))))
-    print("Query greater(a, c):", memory.ask(Fact("greater", ("a", "c"))))
-    print("Query greater(c, a):", memory.ask(Fact("greater", ("c", "a"))))
+    print("Directly stored greater(a, b):", memory.has_fact(greater_a_b))
+    print("Directly stored greater(a, c):", memory.has_fact(greater_a_c))
+    print("Directly stored transitive rule:", memory.has_rule(transitive_example))
+
+    print("Query greater(a, b):", memory.ask(greater_a_b))
+    print("Query greater(a, c):", memory.ask(greater_a_c))
+    print("Query greater(c, a):", memory.ask(greater_c_a))
