@@ -1,0 +1,8 @@
+[project]
+name = "limited-memory-inductive-reasoning-agent"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "z3-solver==4.13.4.0",
+]
