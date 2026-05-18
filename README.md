@@ -191,7 +191,7 @@ Hybrid approach:
 - [x] `SimpleAgent` baseline — no rules, 20-fact limit (`agents/simple.py`)
 
 ### Week 8
-- [ ] `RandomAgent` — random eviction policy (`agents/random.py`)
+- [x] `RandomAgent` — random eviction policy (`agents/random.py`)
 - [ ] `ImportanceAgent` — heuristic-based eviction, no compression (`agents/importance.py`)
 - [ ] `FOLCompressionAgent` — detects patterns, generalizes into rules (`agents/fol.py`)
 - [ ] Expanded dataset (divisibility, transitivity chains)
