@@ -1,0 +1,5 @@
+use these names for the function headers:
+init
+process
+answer
+show

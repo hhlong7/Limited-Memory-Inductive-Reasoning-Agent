@@ -9,10 +9,10 @@ class SimpleAgent(BaseAgent):
     def __init__(self, fact_limit: int = 20):
         self.memory = LogicMemory(fact_limit=fact_limit, rule_limit=0)
 
-    def process_fact(self, fact: Fact) -> None:
+    def process(self, fact: Fact) -> None:
         self.memory.add_fact(fact)
 
-    def answer_query(self, query: Fact) -> str:
+    def answer(self, query: Fact) -> str:
         return self.memory.ask(query)
 
     def show(self) -> None:

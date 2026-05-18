@@ -35,7 +35,7 @@ def run_quiz(agent: Agent, questions: List[Tuple[Fact, str]]) -> QuizResult:
     correct = 0
     unknown_count = 0
     for fact, expected in questions:
-        answer = agent.answer_query(fact)
+        answer = agent.answer(fact)
         if answer == "Unknown":
             unknown_count += 1
         if answer == expected:

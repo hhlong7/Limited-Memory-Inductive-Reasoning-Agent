@@ -5,5 +5,6 @@
 
 from agents.base import BaseAgent
 from agents.simple import SimpleAgent
+from agents.random import RandomAgent
 
-__all__ = ["BaseAgent", "SimpleAgent"]
+__all__ = ["BaseAgent", "SimpleAgent", "RandomAgent"]
