@@ -98,7 +98,7 @@ uv sync
 uv run python main.py
 
 # larger dataset
-uv run python main.py --dataset datasets/large
+uv run python main.py --stream datasets/large
 ```
 
 **Example output (small dataset):**
@@ -192,6 +192,7 @@ Hybrid approach:
 
 ### Week 8
 - [x] `RandomAgent` — random eviction policy (`agents/random.py`)
+- [x] `Timer` - more to add
 - [ ] `ImportanceAgent` — heuristic-based eviction, no compression (`agents/importance.py`)
 - [ ] `FOLCompressionAgent` — detects patterns, generalizes into rules (`agents/fol.py`)
 - [ ] Expanded dataset (divisibility, transitivity chains)

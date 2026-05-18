@@ -6,7 +6,8 @@ from agents import SimpleAgent, RandomAgent
 from quiz import run_quiz
 
 
-FACT_LIMIT = 20 #increase to 40 for better performance tho
+FACT_LIMIT = 20     #increase to 40 for better performance tho
+                    #100 for better perf with large datasets
 
 
 def helper_run(agent_name: str, agent, stream, quiz_questions):
