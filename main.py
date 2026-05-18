@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+import time
 from data import load_stream, load_quiz
 from agents import SimpleAgent, RandomAgent
 from quiz import run_quiz
@@ -15,15 +16,23 @@ def helper_run(agent_name: str, agent, stream, quiz_questions):
     print(f"{agent_name} is processing the stream...")
     print(f"{'='*70}")
     
+    #timing ts
+    start_time = time.perf_counter()
     for fact in stream:
         agent.process(fact)
+    stream_time = time.perf_counter() - start_time
     
     print("\nAgent memory after stream:")
     agent.show()
 
-    print("\nRunning quiz...")
+    start_time_quiz = time.perf_counter()
     score = run_quiz(agent, quiz_questions)
+    quiz_time = time.perf_counter() - start_time_quiz
+
+    print("\nRunning quiz...")
     print(f"Results for {agent_name}: {score}")
+    print(f"Streaming time: {stream_time:.5f} seconds")
+    print(f"Quiz time: {quiz_time:.5f} seconds")
 
     return score
 
