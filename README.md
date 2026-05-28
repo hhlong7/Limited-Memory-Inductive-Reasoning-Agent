@@ -193,7 +193,7 @@ Hybrid approach:
 ### Week 8
 - [x] `RandomAgent` — random eviction policy (`agents/random.py`)
 - [x] `Timer` - more to add
-- [ ] `ImportanceAgent` — heuristic-based eviction, no compression (`agents/importance.py`)
+- [x] `ImportanceAgent` — heuristic-based eviction, no compression (`agents/importance.py`)
 - [ ] `FOLCompressionAgent` — detects patterns, generalizes into rules (`agents/fol.py`)
 - [x] Expanded dataset (divisibility, transitivity chains)
 
