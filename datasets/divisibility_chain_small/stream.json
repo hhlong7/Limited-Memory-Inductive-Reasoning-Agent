@@ -1,0 +1,72 @@
+[
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "81"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "64"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "16"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "729"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "243"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "27"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "9"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "4"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "32"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "8"
+    ]
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "81"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "81"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "243"
+    ],
+    "expected": "True"
+  }
+]

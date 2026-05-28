@@ -1,0 +1,802 @@
+[
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "9765625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "9765625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "9765625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "2048"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5764801",
+      "13841287201"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2187",
+      "177147"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "78125",
+      "244140625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "48828125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "390625",
+      "48828125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "177147"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2187",
+      "59049"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "13841287201"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "15625",
+      "244140625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "2048"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "177147"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "1977326743"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "117649"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "13841287201"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "282475249"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "2401"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5764801",
+      "282475249"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "1024"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "64",
+      "4096"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "16807"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "64",
+      "1024"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "531441"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "2048"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "343"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "6561",
+      "531441"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "244140625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "13841287201"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "6561",
+      "177147"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "59049"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "531441"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "9765625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "1024"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "177147"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "1953125",
+      "48828125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "6561",
+      "59049"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "15625",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "4096"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2187",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "81"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "729",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "117649",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "128",
+      "2048"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "512",
+      "4096"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "256",
+      "1024"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "531441"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "1977326743"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "128",
+      "4096"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "244140625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "9765625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "244140625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "117649",
+      "13841287201"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "282475249"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "1977326743"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "128",
+      "1024"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "3125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "3125"
+    ],
+    "expected": "True"
+  }
+]

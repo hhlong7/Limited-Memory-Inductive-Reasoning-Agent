@@ -1,0 +1,65 @@
+[
+  {
+    "predicate": "greater",
+    "args": [
+      "5",
+      "4"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "7"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "8"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "5"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "9"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "4",
+      "3"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "6"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "2",
+      "1"
+    ]
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "3",
+      "2"
+    ]
+  }
+]

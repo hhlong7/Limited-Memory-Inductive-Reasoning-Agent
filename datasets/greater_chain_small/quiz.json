@@ -1,0 +1,242 @@
+[
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "3",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "4",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "5",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "5",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "4",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "5",
+      "2"
+    ],
+    "expected": "True"
+  }
+]
