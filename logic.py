@@ -42,9 +42,6 @@ class LogicMemory:
         if self.has_fact(fact):
             return
         if len(self.facts) >= self.fact_limit:
-            # TODO: eviction policy is hardcoded to FIFO (oldest fact removed).
-            # RandomAgent and ImportanceAgent need different strategies.
-            # Consider accepting an eviction callable so each agent can plug in its own policy.
             del self.facts[next(iter(self.facts))]
         self.facts[fact] = {"score": 0.0}
 

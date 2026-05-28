@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import time
 from data import load_stream, load_quiz
-from agents import SimpleAgent, RandomAgent
+from agents import SimpleAgent, RandomAgent, ImportanceAgent
 from quiz import run_quiz
 
 
@@ -63,6 +63,11 @@ def main():
     random_agent = RandomAgent(fact_limit=FACT_LIMIT)
     random_score = helper_run("RandomAgent", random_agent, stream, quiz_questions)
 
+    # Importance agent
+    print("\n")
+    importance_agent = ImportanceAgent(fact_limit=FACT_LIMIT)
+    importance_score = helper_run("ImportanceAgent", importance_agent, stream, quiz_questions)
+
     #add more agents once we have em
 
 
@@ -71,6 +76,7 @@ def main():
     print(f"\nFinal Scores:")
     print(f"SimpleAgent: {simple_score}")
     print(f"RandomAgent: {random_score}")
+    print(f"ImportanceAgent: {importance_score}")
 
 
 if __name__ == "__main__":
