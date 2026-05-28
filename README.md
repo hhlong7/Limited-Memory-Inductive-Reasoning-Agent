@@ -195,7 +195,7 @@ Hybrid approach:
 - [x] `Timer` - more to add
 - [ ] `ImportanceAgent` — heuristic-based eviction, no compression (`agents/importance.py`)
 - [ ] `FOLCompressionAgent` — detects patterns, generalizes into rules (`agents/fol.py`)
-- [ ] Expanded dataset (divisibility, transitivity chains)
+- [x] Expanded dataset (divisibility, transitivity chains)
 
 ### Week 9
 - [ ] Full benchmarks across all agents on both datasets
