@@ -1,7 +1,7 @@
 import json
 import random
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 from facts import Fact
 
 
@@ -66,6 +66,29 @@ def generate_greater_transitive_quiz(max_n: int, n_questions: int, seed: int) ->
 
     selected = pairs[:n_questions]
     return [(Fact("greater", (str(i), str(j))), "True") for i, j in selected]
+
+
+def generate_greater_negatives(max_n: int, seed: int, n_facts: Optional[int] = None) -> List[Fact]:
+    """
+    Generates false greater-than statements as explicit negative facts.
+
+    A pair (i, j) is negative for greater iff i <= j.
+    Encoded as predicate: not_greater(i, j)
+    """
+    pairs = [
+        (i, j)
+        for i in range(1, max_n + 1)
+        for j in range(1, max_n + 1)
+        if i <= j
+    ]
+
+    rng = random.Random(seed)
+    rng.shuffle(pairs)
+
+    if n_facts is not None:
+        pairs = pairs[:n_facts]
+
+    return [Fact("not_greater", (str(i), str(j))) for i, j in pairs]
 
 
 def generate_divisibility_chain_stream(base: int, length: int, seed: int) -> List[Fact]:
