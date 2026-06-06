@@ -1,4 +1,5 @@
 from typing import Any, Dict
+from itertools import product
 from z3 import Bool, And, Implies, Not, Solver, unsat
 from facts import Fact, Rule
 
@@ -23,6 +24,104 @@ def rule_to_z3(rule: Rule):
     if len(premise_exprs) == 1:
         return Implies(premise_exprs[0], conclusion_expr)
     return Implies(And(*premise_exprs), conclusion_expr)
+
+
+def is_variable(term: str) -> bool:
+    # treats uppercase strings (X, Y, Z) as variables, everything else is treated as a constant
+    return term.isalpha() and term.isupper()
+
+
+def variables_in_fact(fact: Fact):
+    return {arg for arg in fact.args if is_variable(arg)}
+
+
+def variables_in_rule(rule: Rule):
+    variables = set()
+
+    for premise in rule.premises:
+        variables.update(variables_in_fact(premise))
+    variables.update(variables_in_fact(rule.conclusion))
+
+    return sorted(variables)
+
+
+def substitute_fact(fact: Fact, assignment: Dict[str, str]) -> Fact:
+    """
+    Replaces variables with their values
+    Example:
+        greater(X, Y), {"X": "5", "Y": "4}
+        becomes greater(5, 4)
+    """
+    grounded_args = tuple(assignment.get(arg, arg) for arg in fact.args)
+    return Fact(fact.predicate, grounded_args)
+
+
+def ground_rule(rule: Rule, assignment: Dict[str, str]) -> Rule:
+    grounded_premises = tuple(substitute_fact(p, assignment) for p in rule.premises)
+    grounded_conclusion = substitute_fact(rule.conclusion, assignment)
+
+    return Rule(
+        premises=grounded_premises,
+        conclusion=grounded_conclusion,
+        name=rule.name,
+    )
+
+
+def ground_rules(rule: Rule, constants) -> list[Rule]:
+    """
+    Grounds a rule over all known constants
+    Example:
+        P(X,Y) AND P(Y,Z) -> P(X,Z)
+        with constants {1, 2, 3} creates many concrete rules like:
+        P(3,2) AND P(2,1) -> P(3,1)
+    """
+    variables = variables_in_rule(rule)
+
+    if not variables:
+        return [rule]
+
+    grounded = []
+    for values in product(constants, repeat=len(variables)):
+        # zip makes (variable, value) pairs
+        assignment = dict(zip(variables, values))
+        grounded.append(ground_rule(rule, assignment))
+
+    return grounded
+
+
+def build_solver_with_grounded_rules(facts, rule_templates, constants):
+    s = Solver()
+    for fact in facts:
+        s.add(fact_to_z3(fact))
+
+    for rule_template in rule_templates:
+        for grounded_rule in ground_rules(rule_template, constants):
+            s.add(rule_to_z3(grounded_rule))
+
+    return s
+
+
+def ask_with_grounded_rules(facts, rule_templates, constants, query: Fact) -> str:
+    s = build_solver_with_grounded_rules(facts, rule_templates, constants)
+    q = fact_to_z3(query)
+
+    s.push()
+    s.add(Not(q))
+    result = s.check()
+    s.pop()
+
+    if result == unsat:
+        return "True"
+
+    s.push()
+    s.add(q)
+    result = s.check()
+    s.pop()
+
+    if result == unsat:
+        return "False"
+
+    return "Unknown"
 
 
 class LogicMemory:

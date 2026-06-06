@@ -6,8 +6,9 @@ from agents.base import BaseAgent
 def _shares_argument(a: Fact, b: Fact) -> bool:
     return a.predicate == b.predicate and bool(set(a.args) & set(b.args))
 
+
 class ImportanceLogic(LogicMemory):
-    # Incriment score for reseen fact
+    # Increment score for re-seen fact
     def add_fact(self, fact: Fact) -> None:
         if self.has_fact(fact):
             self.facts[fact]["score"] += 1.0
@@ -24,7 +25,8 @@ class ImportanceLogic(LogicMemory):
         for stored_fact in self.facts:
             if stored_fact != fact and _shares_argument(stored_fact, fact):
                 self.facts[stored_fact]["score"] += 1.0
-    
+
+
 class ImportanceAgent(BaseAgent):
     # Bot keeps facts based on importance score (times seen)
     def __init__(self, fact_limit: int = 20):

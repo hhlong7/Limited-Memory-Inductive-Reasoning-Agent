@@ -10,9 +10,9 @@ NAMES = (
     "right_composition",
 )
 
-#generate rules for a given predicate
 
-def rule(predicate: str) -> List[Rule]:
+# generate rules for a given predicate
+def generate_universe(predicate: str) -> List[Rule]:
     p = predicate
 
     return [
@@ -59,8 +59,10 @@ def rule(predicate: str) -> List[Rule]:
         ),
     ]
 
-#give 2 facts, find the pattern of shared argv, and return the corresponding rule shape if it matches one of the predefined patterns, otherwise return None
 
+# give 2 facts, find the pattern of shared argv,
+# and return the corresponding rule shape if it matches one of the predefined patterns,
+# otherwise return None
 def pair_index_pattern(g: Fact, f: Fact):
 
     if g.predicate != f.predicate:
@@ -80,13 +82,13 @@ def pair_index_pattern(g: Fact, f: Fact):
     return matches[0]
 
 
-#given a predicate and a pattern, return the corresponding rule shape if it matches one of the 
-#predefined patterns: 
-#(1, 0) -> transitivity_chain
-#(0, 0) -> shared_first_arg
-#(1, 1) -> shared_second_arg
-#(0, 1) -> left_composition 
-#if na then return None
+# given a predicate and a pattern, return the corresponding rule shape if it matches one of the
+# predefined patterns:
+# (1, 0) -> transitivity_chain
+# (0, 0) -> shared_first_arg
+# (1, 1) -> shared_second_arg
+# (0, 1) -> left_composition
+# if na then return None
 def shape_for_pattern(predicate: str, pattern):
 
     if pattern is None:
