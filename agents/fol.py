@@ -73,14 +73,25 @@ class FOLCompressionAgent(BaseAgent):
             }
 
     def update_support(self, new_fact: Fact) -> None:
-        '''Compare a new fact to stored facts and increment support for matching rules'''
+        """Compare a new fact to stored positives; one vote per pair."""
         for old_fact in self.positives:
             if old_fact == new_fact:
                 continue
             if old_fact.predicate != new_fact.predicate:
                 continue
-            pattern = pair_index_pattern(old_fact, new_fact)
-            rule = shape_for_pattern(new_fact.predicate, pattern)
+
+            rule = None
+            for p1, p2 in ((old_fact, new_fact), (new_fact, old_fact)):
+                pattern = pair_index_pattern(p1, p2)
+                candidate = shape_for_pattern(new_fact.predicate, pattern)
+                if candidate is None:
+                    continue
+                if candidate.name == "transitivity_chain":
+                    rule = candidate
+                    break
+                if rule is None:
+                    rule = candidate
+
             if rule is None or rule not in self.candidates:
                 continue
             meta = self.candidates[rule]

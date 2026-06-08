@@ -13,6 +13,7 @@ from data import (
     generate_greater_chain_stream,
     generate_greater_transitive_quiz,
     generate_greater_negatives,
+    generate_divides_negatives,
     generate_mixed_divisibility_chain_stream,
     generate_mixed_divisibility_transitive_quiz,
     save_stream,
@@ -24,8 +25,8 @@ DATASETS = {
     "large": {"max_n": 15, "n_quiz": 50, "stream_seed": 42, "quiz_seed": 99},
     "greater_chain_small": {"max_n": 10, "n_quiz": 30, "n_negatives": 10, "stream_seed": 42, "quiz_seed": 99},
     "greater_chain_large": {"max_n": 50, "n_quiz": 150, "n_negatives": 80, "stream_seed": 42, "quiz_seed": 99},
-    "divisibility_chain_small": {"bases": [2, 3], "length": 6, "n_quiz": 20, "stream_seed": 42, "quiz_seed": 99},
-    "divisibility_chain_large": {"bases": [2, 3, 5, 7], "length": 12, "n_quiz": 100, "stream_seed": 42, "quiz_seed": 99},
+    "divisibility_chain_small": {"bases": [2, 3], "length": 6, "n_quiz": 20, "n_negatives": 8, "stream_seed": 42, "quiz_seed": 99},
+    "divisibility_chain_large": {"bases": [2, 3, 5, 7], "length": 12, "n_quiz": 100, "n_negatives": 40, "stream_seed": 42, "quiz_seed": 99},
 }
 
 
@@ -56,6 +57,16 @@ def build_dataset(name, cfg):
             length=cfg["length"],
             seed=cfg["stream_seed"],
         )
+        negatives = generate_divides_negatives(
+            bases=cfg["bases"],
+            length=cfg["length"],
+            seed=cfg["stream_seed"] + 1,
+            n_facts=cfg.get("n_negatives"),
+        )
+        stream = stream + negatives
+        stream_rng = random.Random(cfg["stream_seed"] + 2)
+        stream_rng.shuffle(stream)
+
         quiz = generate_mixed_divisibility_transitive_quiz(
             bases=cfg["bases"],
             length=cfg["length"],

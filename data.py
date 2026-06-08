@@ -91,6 +91,39 @@ def generate_greater_negatives(max_n: int, seed: int, n_facts: Optional[int] = N
     return [Fact("not_greater", (str(i), str(j))) for i, j in pairs]
 
 
+def generate_divides_negatives(
+    bases: List[int],
+    length: int,
+    seed: int,
+    n_facts: Optional[int] = None,
+) -> List[Fact]:
+    """
+    Generates false divides statements as explicit negative facts.
+
+    A pair (a, b) is negative for divides iff a does not divide b.
+    Encoded as predicate: not_divides(a, b)
+    """
+    values = set()
+    for base in bases:
+        for i in range(1, length + 1):
+            values.add(base ** i)
+
+    pairs = [
+        (str(a), str(b))
+        for a in values
+        for b in values
+        if a != b and int(b) % int(a) != 0
+    ]
+
+    rng = random.Random(seed)
+    rng.shuffle(pairs)
+
+    if n_facts is not None:
+        pairs = pairs[:n_facts]
+
+    return [Fact("not_divides", (a, b)) for a, b in pairs]
+
+
 def generate_divisibility_chain_stream(base: int, length: int, seed: int) -> List[Fact]:
     """
     Generates a divisibility chain using powers of the base.
