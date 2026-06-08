@@ -9,7 +9,6 @@ from quiz import run_quiz
 FACT_LIMIT = 20     # increase to 40 for better performance tho
                     # 100 for better perf with large datasets
 
-
 def helper_run(agent_name: str, agent, stream, quiz_questions):
     # a helper function to run the quiz for any agent, js call it
     # more convenient
@@ -21,6 +20,8 @@ def helper_run(agent_name: str, agent, stream, quiz_questions):
     start_time = time.perf_counter()
     for fact in stream:
         agent.process(fact)
+    if hasattr(agent, "finalize"):
+        agent.finalize()
     stream_time = time.perf_counter() - start_time
     
     print("\nAgent memory after stream:")

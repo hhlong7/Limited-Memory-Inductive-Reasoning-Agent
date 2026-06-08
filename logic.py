@@ -1,7 +1,23 @@
-from typing import Any, Dict
+from typing import Any, Dict, Iterable, Optional, Tuple
 from itertools import product
-from z3 import Bool, And, Implies, Not, Solver, unsat
+from z3 import (
+    And,
+    Bool,
+    BoolSort,
+    Const,
+    DeclareSort,
+    ForAll,
+    Function,
+    Implies,
+    Not,
+    Solver,
+    unsat,
+)
 from facts import Fact, Rule
+
+_entity_sort = None
+_predicate_fns: Dict[str, Any] = {}
+_entity_consts: Dict[str, Any] = {}
 
 
 # TODO: propositional encoding — each Fact becomes a unique boolean (e.g. Bool("greater_5_3")).
@@ -65,6 +81,133 @@ def ground_rule(rule: Rule, assignment: Dict[str, str]) -> Rule:
         conclusion=grounded_conclusion,
         name=rule.name,
     )
+
+
+def _get_entity_sort():
+    global _entity_sort
+    if _entity_sort is None:
+        _entity_sort = DeclareSort("Entity")
+    return _entity_sort
+
+
+def _entity(name: str):
+    if name not in _entity_consts:
+        _entity_consts[name] = Const(f"ent_{name}", _get_entity_sort())
+    return _entity_consts[name]
+
+
+def _predicate_fn(name: str):
+    if name not in _predicate_fns:
+        sort = _get_entity_sort()
+        _predicate_fns[name] = Function(name, sort, sort, BoolSort())
+    return _predicate_fns[name]
+
+
+def _fact_atom(fact: Fact):
+    pred = _predicate_fn(fact.predicate)
+    return pred(_entity(fact.args[0]), _entity(fact.args[1]))
+
+
+def _fact_pattern(fact: Fact, var_map: Dict[str, Any]):
+    pred = _predicate_fn(fact.predicate)
+    args = []
+    for arg in fact.args:
+        if is_variable(arg):
+            if arg not in var_map:
+                var_map[arg] = Const(arg, _get_entity_sort())
+            args.append(var_map[arg])
+        else:
+            args.append(_entity(arg))
+    return pred(*args)
+
+
+def rule_to_z3_forall(rule: Rule):
+    var_map: Dict[str, Any] = {}
+    premises = [_fact_pattern(p, var_map) for p in rule.premises]
+    conclusion = _fact_pattern(rule.conclusion, var_map)
+    body = Implies(And(*premises), conclusion) if premises else conclusion
+    z3_vars = list(var_map.values())
+    if not z3_vars:
+        return body
+    return ForAll(z3_vars, body)
+
+
+def build_solver_with_quantified_rules(facts: Iterable[Fact], rule_templates: Iterable[Rule]):
+    s = Solver()
+    for fact in facts:
+        s.add(_fact_atom(fact))
+    for template in rule_templates:
+        s.add(rule_to_z3_forall(template))
+    return s
+
+
+def ask_with_quantified_rules(
+    facts: Iterable[Fact],
+    rule_templates: Iterable[Rule],
+    query: Fact,
+) -> str:
+    s = build_solver_with_quantified_rules(facts, rule_templates)
+    q = _fact_atom(query)
+
+    s.push()
+    s.add(Not(q))
+    if s.check() == unsat:
+        s.pop()
+        return "True"
+    s.pop()
+
+    s.push()
+    s.add(q)
+    if s.check() == unsat:
+        s.pop()
+        return "False"
+    s.pop()
+
+    return "Unknown"
+
+
+def apply_rule(rule: Rule, premise_facts: Tuple[Fact, ...]) -> Optional[Fact]:
+    """Ground a rule template using concrete premise facts; None if they do not match."""
+    subst: Dict[str, str] = {}
+    for prem, fact in zip(rule.premises, premise_facts):
+        if prem.predicate != fact.predicate or len(prem.args) != len(fact.args):
+            return None
+        for pattern_arg, fact_arg in zip(prem.args, fact.args):
+            if is_variable(pattern_arg):
+                if pattern_arg in subst and subst[pattern_arg] != fact_arg:
+                    return None
+                subst[pattern_arg] = fact_arg
+            elif pattern_arg != fact_arg:
+                return None
+    return substitute_fact(rule.conclusion, subst)
+
+
+def rule_derives_false_from_positives(
+    rule: Rule,
+    positives: Iterable[Fact],
+    negatives: Iterable[Fact],
+) -> bool:
+    """Check whether any positive-fact instance of rule derives a known false conclusion."""
+    negative_set = set(negatives)
+    pos_list = list(positives)
+
+    if len(rule.premises) == 1:
+        for fact in pos_list:
+            conclusion = apply_rule(rule, (fact,))
+            if conclusion is not None and conclusion in negative_set:
+                return True
+        return False
+
+    if len(rule.premises) == 2:
+        for i, first in enumerate(pos_list):
+            for second in pos_list[i + 1 :]:
+                for pair in ((first, second), (second, first)):
+                    conclusion = apply_rule(rule, pair)
+                    if conclusion is not None and conclusion in negative_set:
+                        return True
+        return False
+
+    return False
 
 
 def ground_rules(rule: Rule, constants) -> list[Rule]:
