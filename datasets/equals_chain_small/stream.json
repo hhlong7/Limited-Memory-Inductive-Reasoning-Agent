@@ -1,0 +1,93 @@
+[
+  {
+    "predicate": "equals",
+    "args": [
+      "9",
+      "9"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "7",
+      "7"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "6",
+      "6"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "5",
+      "5"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "8",
+      "8"
+    ]
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "3",
+      "9"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "2",
+      "2"
+    ]
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "4",
+      "9"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "3",
+      "3"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "4",
+      "4"
+    ]
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "8",
+      "7"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "1",
+      "1"
+    ]
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "10",
+      "10"
+    ]
+  }
+]

@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from facts import Fact, Rule
 from logic import (
     LogicMemory,
@@ -7,17 +8,15 @@ from logic import (
     _fact_atom,
 )
 from z3 import Not, unsat
-from universal import generate_universe, pair_index_pattern, shape_for_pattern
+from universal import generate_universe, pair_index_pattern, shape_for_pattern, reflexivity_rule
 from agents.base import BaseAgent
 
 
 class FOLCompressionAgent(BaseAgent):
     def __init__(self, fact_limit: int = 20, rule_limit: int = 20):
         self.memory = LogicMemory(fact_limit=fact_limit, rule_limit=rule_limit)
-        self.positives = set()
-        # Negative facts are stored in positive looking form, not_greater(1,2) becomes greater(1,2)
-        # This makes it easy to check if a candidate rule derived a known false fact
-        self.negatives = set()
+        # Shared FIFO learning buffer: positives + negatives sum to fact_limit.
+        self._learning_trace: OrderedDict[tuple[str, Fact], None] = OrderedDict()
         self.constants = set()
         # predicate -> list[Rule]
         # Dictionary, keys are the predicate names,
@@ -53,6 +52,20 @@ class FOLCompressionAgent(BaseAgent):
         positive_predicate = fact.predicate.removeprefix("not_")
         return Fact(positive_predicate, fact.args)
 
+    def _learning_positives(self):
+        return [fact for kind, fact in self._learning_trace if kind == "pos"]
+
+    def _learning_negatives(self):
+        return {fact for kind, fact in self._learning_trace if kind == "neg"}
+
+    def _add_learning(self, kind: str, fact: Fact) -> None:
+        key = (kind, fact)
+        if key in self._learning_trace:
+            return
+        if len(self._learning_trace) >= self.memory.fact_limit:
+            self._learning_trace.popitem(last=False)
+        self._learning_trace[key] = None
+
     def ensure_predicate_universe(self, predicate: str) -> None:
         # Generates candidate rules the first time we see a predicate
 
@@ -72,9 +85,31 @@ class FOLCompressionAgent(BaseAgent):
                 # committed = have I decided to actually use this rule
             }
 
+    def _memory_positives(self):
+        return [fact for fact in self.memory.facts if not self.is_negative(fact)]
+
+    def _memory_negatives(self):
+        return {self.positive_version(fact) for fact in self.memory.facts if self.is_negative(fact)}
+
+    def update_reflexivity_support(self, fact: Fact) -> None:
+        """A reflexive positive fact is one vote for the reflexivity rule."""
+        if len(fact.args) != 2 or fact.args[0] != fact.args[1]:
+            return
+
+        rule = reflexivity_rule(fact.predicate)
+        if rule not in self.candidates:
+            return
+
+        meta = self.candidates[rule]
+        if meta["eliminated"] or meta["committed"]:
+            return
+        meta["support"] += 1
+
     def update_support(self, new_fact: Fact) -> None:
         """Compare a new fact to stored positives; one vote per pair."""
-        for old_fact in self.positives:
+        self.update_reflexivity_support(new_fact)
+
+        for old_fact in self._learning_positives():
             if old_fact == new_fact:
                 continue
             if old_fact.predicate != new_fact.predicate:
@@ -104,7 +139,9 @@ class FOLCompressionAgent(BaseAgent):
         for rule, meta in self.candidates.items():
             if meta["eliminated"] or meta["committed"]:
                 continue
-            if rule_derives_false_from_positives(rule, self.positives, self.negatives):
+            if rule_derives_false_from_positives(
+                rule, self._learning_positives(), self._learning_negatives(), self.constants
+            ):
                 meta["eliminated"] = True
 
     def select_best_candidate(self) -> None:
@@ -164,12 +201,13 @@ class FOLCompressionAgent(BaseAgent):
         changed = True
         while changed:
             changed = False
-            for fact in list(self.memory.facts.keys()):
-                other_facts = [f for f in self.memory.facts.keys() if f != fact]
+            for fact in list(self._memory_positives()):
+                other_facts = [f for f in self._memory_positives() if f != fact]
                 res = ask_with_quantified_rules(
-                    facts=other_facts,
+                    facts=[f for f in other_facts if not self.is_negative(f)],
                     rule_templates=self.committed_rules,
                     query=fact,
+                    negatives=self._memory_negatives(),
                 )
                 if res == "True":
                     self.memory.remove_fact(fact)
@@ -187,32 +225,32 @@ class FOLCompressionAgent(BaseAgent):
 
         if self.is_negative(fact):
             negative_fact = self.positive_version(fact)
-            self.negatives.add(negative_fact)
+            self.memory.add_fact(fact)
+            self._invalidate_solver()
             self.ensure_predicate_universe(negative_fact.predicate)
+            self._add_learning("neg", negative_fact)
             self.eliminate_candidates()
             self.track_plateau()
             self.maybe_commit()
             return
 
-        self.positives.add(fact)
-        # 1. Remember the fact
         self.memory.add_fact(fact)
         self._invalidate_solver()
         self.ensure_predicate_universe(fact.predicate)
-        # 2. Learn from opairs
         self.update_support(fact)
-        # 3. Kill off bad rules
+        self._add_learning("pos", fact)
         self.eliminate_candidates()
         # 4. Update plateau tracking for this fact
         self.track_plateau()
         # 5. Commit if counter and support are high enough
         self.maybe_commit()
 
-    def answer(self, query: Fact) -> str:
+    def _answer_positive(self, query: Fact) -> str:
         if self._solver is None:
             self._solver = build_solver_with_quantified_rules(
-                self.memory.facts.keys(),
+                self._memory_positives(),
                 self.committed_rules,
+                self._memory_negatives(),
             )
 
         s = self._solver
@@ -234,6 +272,21 @@ class FOLCompressionAgent(BaseAgent):
 
         return "Unknown"
 
+    def answer(self, query: Fact) -> str:
+        if self.is_negative(query):
+            if self.memory.has_fact(query):
+                return "True"
+            positive = self.positive_version(query)
+            if positive in self._memory_negatives():
+                return "True"
+            result = self._answer_positive(positive)
+            if result == "True":
+                return "False"
+            if result == "False":
+                return "True"
+            return "Unknown"
+        return self._answer_positive(query)
+
     def finalize(self) -> None:
         if self.committed_rules:
             return
@@ -241,12 +294,13 @@ class FOLCompressionAgent(BaseAgent):
         self.maybe_commit()
 
     def show(self) -> None:
-        print("Positive facts:")
-        for fact in sorted(self.positives, key=str):
-            print(" ", fact)
+        print(f"Learning trace ({len(self._learning_trace)}/{self.memory.fact_limit}):")
+        for kind, fact in self._learning_trace:
+            label = "pos" if kind == "pos" else "not"
+            print(f"  [{label}] {fact}")
 
-        print("Negative facts:")
-        for fact in sorted(self.negatives, key=str):
+        print("Memory facts:")
+        for fact in sorted(self.memory.facts, key=str):
             print(" ", fact)
 
         print("Constants:")

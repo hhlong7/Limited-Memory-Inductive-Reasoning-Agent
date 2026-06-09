@@ -9,7 +9,7 @@ from quiz import run_quiz
 FACT_LIMIT = 20     # increase to 40 for better performance tho
                     # 100 for better perf with large datasets
 
-def helper_run(agent_name: str, agent, stream, quiz_questions):
+def helper_run(agent_name: str, agent, stream, quiz_questions, show_unknowns: bool = False):
     # a helper function to run the quiz for any agent, js call it
     # more convenient
     print(f"{'='*70}")
@@ -28,7 +28,7 @@ def helper_run(agent_name: str, agent, stream, quiz_questions):
     agent.show()
 
     start_time_quiz = time.perf_counter()
-    score = run_quiz(agent, quiz_questions)
+    score = run_quiz(agent, quiz_questions, show_unknowns=show_unknowns)
     quiz_time = time.perf_counter() - start_time_quiz
 
     print("\nRunning quiz...")
@@ -42,6 +42,11 @@ def helper_run(agent_name: str, agent, stream, quiz_questions):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--stream", default="datasets/small", help="path to dataset directory")
+    parser.add_argument(
+        "--show-unknowns",
+        action="store_true",
+        help="print quiz questions the agent answered Unknown",
+    )
     args = parser.parse_args()
     dataset = Path(args.stream)
     stream = load_stream(dataset / "stream.json")
@@ -57,22 +62,22 @@ def main():
     # simple agent
     print("\n")
     simple_agent = SimpleAgent(fact_limit=FACT_LIMIT)
-    simple_score = helper_run("SimpleAgent", simple_agent, stream, quiz_questions)
+    simple_score = helper_run("SimpleAgent", simple_agent, stream, quiz_questions, args.show_unknowns)
     
     # random agent
     print("\n")
     random_agent = RandomAgent(fact_limit=FACT_LIMIT)
-    random_score = helper_run("RandomAgent", random_agent, stream, quiz_questions)
+    random_score = helper_run("RandomAgent", random_agent, stream, quiz_questions, args.show_unknowns)
 
     # Importance agent
     print("\n")
     importance_agent = ImportanceAgent(fact_limit=FACT_LIMIT)
-    importance_score = helper_run("ImportanceAgent", importance_agent, stream, quiz_questions)
+    importance_score = helper_run("ImportanceAgent", importance_agent, stream, quiz_questions, args.show_unknowns)
 
     # FOL agent
     print("\n")
     fol_agent = FOLCompressionAgent(fact_limit=FACT_LIMIT)
-    fol_score = helper_run("FOLCompressionAgent", fol_agent, stream, quiz_questions)
+    fol_score = helper_run("FOLCompressionAgent", fol_agent, stream, quiz_questions, args.show_unknowns)
 
     # comparing
     print(f"\n{'='*70}")

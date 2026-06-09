@@ -43,29 +43,57 @@ def generate_greater_chain_stream(max_n: int, seed: int) -> List[Fact]:
     return [Fact("greater", (str(i), str(j))) for i, j in pairs]
 
 
-def generate_greater_transitive_quiz(max_n: int, n_questions: int, seed: int) -> List[Tuple[Fact, str]]:
+def generate_greater_transitive_quiz(
+    max_n: int,
+    seed: int,
+    false_sources: Optional[List[Fact]] = None,
+    n_questions: Optional[int] = None,
+) -> List[Tuple[Fact, str]]:
     """
-    Generates non-adjacent greater-than questions.
-
-    Example:
-        greater(5, 3)
-        greater(10, 2)
-
-    These are true, but they are not direct chain links. They require
-    transitive reasoning if the stream only contains adjacent facts.
+    Quiz over unique transitive greater pairs plus stream not_greater facts.
+    When n_questions is set, include all negatives and sample true pairs without
+    replacement up to that total.
     """
-    pairs = [
+    true_pairs = [
         (i, j)
         for i in range(1, max_n + 1)
         for j in range(1, max_n + 1)
         if i > j and i != j + 1
     ]
+    if false_sources is not None:
+        false_pairs = [
+            (int(f.args[0]), int(f.args[1]))
+            for f in false_sources
+            if f.predicate == "not_greater"
+        ]
+    else:
+        false_pairs = [
+            (i, j)
+            for i in range(1, max_n + 1)
+            for j in range(1, max_n + 1)
+            if i <= j
+        ]
 
     rng = random.Random(seed)
-    rng.shuffle(pairs)
+    rng.shuffle(true_pairs)
+    rng.shuffle(false_pairs)
 
-    selected = pairs[:n_questions]
-    return [(Fact("greater", (str(i), str(j))), "True") for i, j in selected]
+    if n_questions is not None:
+        n_false = min(len(false_pairs), n_questions)
+        n_true = min(len(true_pairs), n_questions - n_false)
+        true_pairs = true_pairs[:n_true]
+        false_pairs = false_pairs[:n_false]
+
+    quiz = [
+        (Fact("greater", (str(i), str(j))), "True")
+        for i, j in true_pairs
+    ]
+    quiz.extend(
+        (Fact("not_greater", (str(i), str(j))), "True")
+        for i, j in false_pairs
+    )
+    rng.shuffle(quiz)
+    return quiz
 
 
 def generate_greater_negatives(max_n: int, seed: int, n_facts: Optional[int] = None) -> List[Fact]:
@@ -122,6 +150,90 @@ def generate_divides_negatives(
         pairs = pairs[:n_facts]
 
     return [Fact("not_divides", (a, b)) for a, b in pairs]
+
+
+def generate_equals_stream(max_n: int, seed: int) -> List[Fact]:
+    """
+    Numeric equality over integers 1..max_n.
+
+    Only reflexive facts are true, e.g. equals(3, 3).
+    """
+    pairs = [(i, i) for i in range(1, max_n + 1)]
+    rng = random.Random(seed)
+    rng.shuffle(pairs)
+    return [Fact("equals", (str(i), str(j))) for i, j in pairs]
+
+
+def generate_equals_quiz(
+    max_n: int,
+    n_questions: int,
+    seed: int,
+    false_sources: Optional[List[Fact]] = None,
+) -> List[Tuple[Fact, str]]:
+    """
+    Mixed recall: equals(i, i) -> True and not_equals(i, j) -> True for i != j.
+    """
+    true_pairs = [(i, i) for i in range(1, max_n + 1)]
+    if false_sources is not None:
+        false_pairs = [
+            (int(f.args[0]), int(f.args[1]))
+            for f in false_sources
+            if f.predicate == "not_equals"
+        ]
+    else:
+        false_pairs = [
+            (i, j)
+            for i in range(1, max_n + 1)
+            for j in range(1, max_n + 1)
+            if i != j
+        ]
+
+    rng = random.Random(seed)
+    rng.shuffle(true_pairs)
+    rng.shuffle(false_pairs)
+
+    n_true = min(n_questions // 2, len(true_pairs))
+    n_false = min(n_questions - n_true, len(false_pairs))
+    if n_true + n_false < n_questions:
+        n_false = min(n_false + (n_questions - n_true - n_false), len(false_pairs))
+
+    quiz = [
+        (Fact("equals", (str(i), str(j))), "True")
+        for i, j in true_pairs[:n_true]
+    ]
+    quiz.extend(
+        (Fact("not_equals", (str(i), str(j))), "True")
+        for i, j in false_pairs[:n_false]
+    )
+    rng.shuffle(quiz)
+    return quiz
+
+
+def generate_equals_negatives(
+    max_n: int,
+    seed: int,
+    n_facts: Optional[int] = None,
+) -> List[Fact]:
+    """
+    False equals statements as explicit negative facts.
+
+    A pair (i, j) is negative for equals iff i != j.
+    Encoded as predicate: not_equals(i, j)
+    """
+    pairs = [
+        (i, j)
+        for i in range(1, max_n + 1)
+        for j in range(1, max_n + 1)
+        if i != j
+    ]
+
+    rng = random.Random(seed)
+    rng.shuffle(pairs)
+
+    if n_facts is not None:
+        pairs = pairs[:n_facts]
+
+    return [Fact("not_equals", (str(i), str(j))) for i, j in pairs]
 
 
 def generate_divisibility_chain_stream(base: int, length: int, seed: int) -> List[Fact]:
@@ -205,33 +317,66 @@ def generate_mixed_divisibility_chain_stream(bases: List[int], length: int, seed
     return stream
 
 
+def _divisibility_value_set(bases: List[int], length: int) -> set:
+    values = set()
+    for base in bases:
+        for i in range(1, length + 1):
+            values.add(base ** i)
+    return values
+
+
 def generate_mixed_divisibility_transitive_quiz(
     bases: List[int],
     length: int,
-    n_questions: int,
-    seed: int
+    seed: int,
+    false_sources: Optional[List[Fact]] = None,
 ) -> List[Tuple[Fact, str]]:
     """
-    Generates quiz questions from multiple divisibility chains.
+    Quiz over all unique transitive divides pairs plus stream not_divides facts.
     """
-    questions = []
+    values = _divisibility_value_set(bases, length)
+    value_list = sorted(values)
 
+    true_pairs = []
+    seen = set()
     for base in bases:
-        values = [base ** i for i in range(1, length + 1)]
+        chain = [base ** i for i in range(1, length + 1)]
+        for i in range(len(chain)):
+            for j in range(len(chain)):
+                if j > i + 1:
+                    pair = (chain[i], chain[j])
+                    if pair not in seen:
+                        seen.add(pair)
+                        true_pairs.append(pair)
 
-        pairs = [
-            (values[i], values[j])
-            for i in range(len(values))
-            for j in range(len(values))
-            if j > i + 1
+    if false_sources is not None:
+        false_pairs = [
+            (int(f.args[0]), int(f.args[1]))
+            for f in false_sources
+            if f.predicate == "not_divides"
+        ]
+    else:
+        false_pairs = [
+            (a, b)
+            for a in value_list
+            for b in value_list
+            if a != b and b % a != 0
         ]
 
-        questions.extend((Fact("divides", (str(a), str(b))), "True") for a, b in pairs)
-
     rng = random.Random(seed)
-    rng.shuffle(questions)
+    rng.shuffle(true_pairs)
+    rng.shuffle(false_pairs)
 
-    return questions[:n_questions]
+    quiz = [
+        (Fact("divides", (str(a), str(b))), "True")
+        for a, b in true_pairs
+    ]
+    quiz.extend(
+        (Fact("not_divides", (str(a), str(b))), "True")
+        for a, b in false_pairs
+    )
+    rng.shuffle(quiz)
+    return quiz
 
 
 # --- serialization ---

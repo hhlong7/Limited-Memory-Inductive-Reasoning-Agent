@@ -1,0 +1,426 @@
+[
+  {
+    "predicate": "equals",
+    "args": [
+      "41",
+      "41"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "21",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "2",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "37",
+      "37"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "35",
+      "35"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "5",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "11",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "19",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "48",
+      "48"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "15",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "6",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "38",
+      "38"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "17",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "16",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "27",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "42",
+      "42"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "45",
+      "45"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "20",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "36",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "31",
+      "31"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "29",
+      "29"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "11",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "49",
+      "49"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "30",
+      "30"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "25",
+      "25"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "44",
+      "44"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "46",
+      "46"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "39",
+      "39"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "50",
+      "50"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "8",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "24",
+      "24"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "3",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "40",
+      "40"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "32",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "22",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "36",
+      "36"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "7",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "47",
+      "47"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "26",
+      "26"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "10",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "23",
+      "23"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "18",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "8",
+      "26"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "9",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "14",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "43",
+      "43"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "34",
+      "34"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "28",
+      "28"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "13",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "33",
+      "33"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "12",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "1",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "4",
+      "4"
+    ],
+    "expected": "True"
+  }
+]

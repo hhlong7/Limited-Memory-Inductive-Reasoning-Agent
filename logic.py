@@ -132,10 +132,16 @@ def rule_to_z3_forall(rule: Rule):
     return ForAll(z3_vars, body)
 
 
-def build_solver_with_quantified_rules(facts: Iterable[Fact], rule_templates: Iterable[Rule]):
+def build_solver_with_quantified_rules(
+    facts: Iterable[Fact],
+    rule_templates: Iterable[Rule],
+    negatives: Iterable[Fact] = (),
+):
     s = Solver()
     for fact in facts:
         s.add(_fact_atom(fact))
+    for fact in negatives:
+        s.add(Not(_fact_atom(fact)))
     for template in rule_templates:
         s.add(rule_to_z3_forall(template))
     return s
@@ -145,8 +151,9 @@ def ask_with_quantified_rules(
     facts: Iterable[Fact],
     rule_templates: Iterable[Rule],
     query: Fact,
+    negatives: Iterable[Fact] = (),
 ) -> str:
-    s = build_solver_with_quantified_rules(facts, rule_templates)
+    s = build_solver_with_quantified_rules(facts, rule_templates, negatives)
     q = _fact_atom(query)
 
     s.push()
@@ -168,6 +175,9 @@ def ask_with_quantified_rules(
 
 def apply_rule(rule: Rule, premise_facts: Tuple[Fact, ...]) -> Optional[Fact]:
     """Ground a rule template using concrete premise facts; None if they do not match."""
+    if len(rule.premises) == 0:
+        return rule.conclusion
+
     subst: Dict[str, str] = {}
     for prem, fact in zip(rule.premises, premise_facts):
         if prem.predicate != fact.predicate or len(prem.args) != len(fact.args):
@@ -186,10 +196,20 @@ def rule_derives_false_from_positives(
     rule: Rule,
     positives: Iterable[Fact],
     negatives: Iterable[Fact],
+    constants: Iterable[str] = (),
 ) -> bool:
     """Check whether any positive-fact instance of rule derives a known false conclusion."""
     negative_set = set(negatives)
     pos_list = list(positives)
+
+    if len(rule.premises) == 0:
+        known_constants = set(constants) or {arg for fact in pos_list for arg in fact.args}
+        for constant in known_constants:
+            assignment = {var: constant for var in variables_in_fact(rule.conclusion)}
+            conclusion = substitute_fact(rule.conclusion, assignment)
+            if conclusion in negative_set:
+                return True
+        return False
 
     if len(rule.premises) == 1:
         for fact in pos_list:

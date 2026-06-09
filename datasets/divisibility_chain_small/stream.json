@@ -1,9 +1,9 @@
 [
   {
-    "predicate": "not_divides",
+    "predicate": "divides",
     "args": [
-      "9",
-      "4"
+      "243",
+      "729"
     ]
   },
   {
@@ -16,6 +16,34 @@
   {
     "predicate": "divides",
     "args": [
+      "81",
+      "243"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "4"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "81"
+    ]
+  },
+  {
+    "predicate": "not_divides",
+    "args": [
+      "4",
+      "9"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
       "4",
       "8"
     ]
@@ -23,8 +51,22 @@
   {
     "predicate": "not_divides",
     "args": [
-      "729",
+      "64",
       "8"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "16"
+    ]
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "64"
     ]
   },
   {
@@ -44,85 +86,8 @@
   {
     "predicate": "divides",
     "args": [
-      "2",
-      "4"
-    ]
-  },
-  {
-    "predicate": "not_divides",
-    "args": [
-      "4",
-      "9"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
-      "32",
-      "64"
-    ]
-  },
-  {
-    "predicate": "not_divides",
-    "args": [
-      "64",
-      "8"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
-      "27",
-      "81"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
-      "81",
-      "243"
-    ]
-  },
-  {
-    "predicate": "not_divides",
-    "args": [
-      "2",
-      "27"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
       "3",
       "9"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
-      "8",
-      "16"
-    ]
-  },
-  {
-    "predicate": "divides",
-    "args": [
-      "243",
-      "729"
-    ]
-  },
-  {
-    "predicate": "not_divides",
-    "args": [
-      "32",
-      "2"
-    ]
-  },
-  {
-    "predicate": "not_divides",
-    "args": [
-      "243",
-      "8"
     ]
   }
 ]

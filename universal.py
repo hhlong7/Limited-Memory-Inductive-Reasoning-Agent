@@ -21,6 +21,13 @@ RULE_SPECS: List[RuleSpec] = [
         ("X", "Z"),
     ),
     (
+        "reflexivity",
+        None,
+        # -> P(X, X)
+        (),
+        ("X", "X"),
+    ),
+    (
         "symmetry",
         None,
         # P(X,Y) -> P(Y,X)
@@ -65,9 +72,13 @@ def _build_rule(predicate: str, spec: RuleSpec) -> Rule:
     )
 
 
-# generate rules for a given predicate (Horn clauses with at most 2 premises)
+# generate rules for a given predicate (Horn clauses with at most 2 premises, plus reflexivity)
 def generate_universe(predicate: str) -> List[Rule]:
     return [_build_rule(predicate, spec) for spec in RULE_SPECS]
+
+
+def reflexivity_rule(predicate: str) -> Rule:
+    return _build_rule(predicate, next(spec for spec in RULE_SPECS if spec[0] == "reflexivity"))
 
 
 # give 2 facts, find the pattern of shared argv,
