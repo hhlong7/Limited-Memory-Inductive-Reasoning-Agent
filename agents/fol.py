@@ -27,10 +27,9 @@ class FOLCompressionAgent(BaseAgent):
         self.candidates = {}
         # rule templates we are confident in
         self.committed_rules = set()
-        # best rule
-        self.prev_best_support = 0
-        # number of facts since the best rule's support changed
-        self.facts_since_support_change = 0
+        # per-predicate plateau tracking (one committed rule per predicate)
+        self._prev_best_support: dict[str, int] = {}
+        self._facts_since_support_change: dict[str, int] = {}
         # how many facts must pass without increase in best rule support before committing
         self.plateau_threshold = 2
         # minimum support required to commit a rule
@@ -144,11 +143,18 @@ class FOLCompressionAgent(BaseAgent):
             ):
                 meta["eliminated"] = True
 
-    def select_best_candidate(self) -> None:
-        '''Return the best non-eliminated, non-committed rule and its support'''
+    def _rule_predicate(self, rule: Rule) -> str:
+        return rule.conclusion.predicate
+
+    def _committed_predicates(self) -> set[str]:
+        return {self._rule_predicate(rule) for rule in self.committed_rules}
+
+    def _best_candidate_for_predicate(self, predicate: str) -> tuple[Rule | None, int]:
         best_rule = None
         best_support = 0
         for rule, meta in self.candidates.items():
+            if self._rule_predicate(rule) != predicate:
+                continue
             if meta["eliminated"] or meta["committed"]:
                 continue
             if meta["support"] > best_support:
@@ -157,44 +163,40 @@ class FOLCompressionAgent(BaseAgent):
         return best_rule, best_support
 
     def track_plateau(self) -> None:
-        '''Sees if the best rule's evidence has stopped growing'''
-        best = max((
-            meta["support"] for meta in self.candidates.values() if not meta["eliminated"] and not meta["committed"]
-        ), default=0)
-
-        if best != self.prev_best_support:
-            self.prev_best_support = best
-            self.facts_since_support_change = 0
-        else:
-            self.facts_since_support_change += 1
-
+        '''Track whether each predicate's best candidate support has plateaued.'''
+        for predicate in self.predicate_universe:
+            if predicate in self._committed_predicates():
+                continue
+            _, best = self._best_candidate_for_predicate(predicate)
+            prev = self._prev_best_support.get(predicate, 0)
+            if best != prev:
+                self._prev_best_support[predicate] = best
+                self._facts_since_support_change[predicate] = 0
+            else:
+                self._facts_since_support_change[predicate] = (
+                    self._facts_since_support_change.get(predicate, 0) + 1
+                )
 
     def maybe_commit(self) -> None:
-        '''Commits the best rule if plateauing (at most one rule total)'''
-        if self.committed_rules:
-            return
-        if self.prev_best_support < self.support_threshold:
-            return
-        if self.facts_since_support_change < self.plateau_threshold:
-            return
-        
-        best_rule = None
-        best_support = 0
-        for rule, meta in self.candidates.items():
-            if meta["eliminated"] or meta["committed"]:
+        '''Commit the best rule per predicate when support has plateaued.'''
+        for predicate in list(self.predicate_universe.keys()):
+            if predicate in self._committed_predicates():
                 continue
-            if meta["support"] > best_support:
-                best_support = meta["support"]
-                best_rule = rule
-        if best_rule is None or best_support < self.support_threshold:
-            return
+            if len(self.committed_rules) >= self.memory.rule_limit:
+                break
 
-        meta = self.candidates[best_rule]
-        meta["committed"] = True
-        self.committed_rules.add(best_rule)
-        self.memory.add_rule(best_rule)
-        self._invalidate_solver()
-        self.evict_derivable_facts()
+            best_rule, best_support = self._best_candidate_for_predicate(predicate)
+            if best_rule is None or best_support < self.support_threshold:
+                continue
+            if self._facts_since_support_change.get(predicate, 0) < self.plateau_threshold:
+                continue
+
+            meta = self.candidates[best_rule]
+            meta["committed"] = True
+            self.committed_rules.add(best_rule)
+            self.memory.add_rule(best_rule)
+            self._invalidate_solver()
+            self.evict_derivable_facts()
 
     def evict_derivable_facts(self) -> None:
         '''Evicts facts that are derivable from committed rules (entailed)'''
@@ -288,9 +290,9 @@ class FOLCompressionAgent(BaseAgent):
         return self._answer_positive(query)
 
     def finalize(self) -> None:
-        if self.committed_rules:
-            return
-        self.facts_since_support_change = self.plateau_threshold
+        for predicate in self.predicate_universe:
+            if predicate not in self._committed_predicates():
+                self._facts_since_support_change[predicate] = self.plateau_threshold
         self.maybe_commit()
 
     def show(self) -> None:

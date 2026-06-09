@@ -1,0 +1,3186 @@
+[
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "25"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "117649"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "3125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "11",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "26",
+      "26"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "2401"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "20",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "3125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "2",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "17",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "117649",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "14",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "18",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "12",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "17",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "4",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "14",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "81"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "25",
+      "25"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "19",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "11",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "30",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "28",
+      "28"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "22",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "16807"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "9",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "4",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_equals",
+    "args": [
+      "27",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "7",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "64",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "16807"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_divides",
+    "args": [
+      "19683",
+      "16807"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "29",
+      "29"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "823543",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "24",
+      "24"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "23"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "3",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "23"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "64",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "14",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "24"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "117649",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "21",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_greater",
+    "args": [
+      "24",
+      "29"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2187",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "15625",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "16807"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "729",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "11",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "343",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_greater",
+    "args": [
+      "15",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_divides",
+    "args": [
+      "390625",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "40353607"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "117649"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "11",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "729",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "11",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "8",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "78125",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "128",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3125",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "343"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "30",
+      "30"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "81"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "15625",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "32",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "625",
+      "15625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "27",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "15",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "9",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "3125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "1",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "13",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "27",
+      "243"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "14",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "22",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "256"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16807",
+      "823543"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "19"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "5764801"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "3",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "20"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "14",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "7",
+      "2401"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "23"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "128"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "5",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "125",
+      "1953125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "8",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "21"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "6",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "10",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "8",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "390625"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "16",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_greater",
+    "args": [
+      "20",
+      "25"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "29",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "512"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "12",
+      "2"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "14",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "16",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "7",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "19683"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "10",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "1"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "64"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "6",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "22"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "not_divides",
+    "args": [
+      "823543",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "24",
+      "18"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "17"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "16",
+      "4"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "9",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "25",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "20",
+      "12"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "15",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "6"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "11",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "13"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "2187"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "81",
+      "729"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "18",
+      "15"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "21",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "5",
+      "78125"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "4",
+      "32"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "28",
+      "3"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "49",
+      "117649"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "19",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "8"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "5",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "3",
+      "27"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "9"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "27",
+      "16"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "13",
+      "5"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "30",
+      "7"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "2401",
+      "117649"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "23",
+      "14"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "243",
+      "6561"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "17",
+      "10"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "greater",
+    "args": [
+      "26",
+      "11"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "equals",
+    "args": [
+      "23",
+      "23"
+    ],
+    "expected": "True"
+  },
+  {
+    "predicate": "divides",
+    "args": [
+      "25",
+      "625"
+    ],
+    "expected": "True"
+  }
+]

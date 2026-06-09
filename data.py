@@ -7,21 +7,6 @@ from facts import Fact
 
 # --- generation ---
 
-def generate_greater_stream(max_n: int, seed: int) -> List[Fact]:
-    pairs = [(i, j) for i in range(1, max_n + 1) for j in range(1, max_n + 1) if i > j]
-    rng = random.Random(seed)
-    rng.shuffle(pairs)
-    return [Fact("greater", (str(i), str(j))) for i, j in pairs]
-
-
-def generate_greater_recall_quiz(max_n: int, n_questions: int, seed: int) -> List[Tuple[Fact, str]]:
-    pairs = [(i, j) for i in range(1, max_n + 1) for j in range(1, max_n + 1) if i > j]
-    rng = random.Random(seed)
-    rng.shuffle(pairs)
-    selected = pairs[:n_questions]
-    return [(Fact("greater", (str(i), str(j))), "True") for i, j in selected]
-
-
 def generate_greater_chain_stream(max_n: int, seed: int) -> List[Fact]:
     """
     Generates only adjacent greater-than facts.
@@ -375,6 +360,75 @@ def generate_mixed_divisibility_transitive_quiz(
         (Fact("not_divides", (str(a), str(b))), "True")
         for a, b in false_pairs
     )
+    rng.shuffle(quiz)
+    return quiz
+
+
+def generate_mixed_chain_stream(
+    max_n: int,
+    bases: List[int],
+    length: int,
+    seed: int,
+    n_negatives: int = 3,
+) -> List[Fact]:
+    """
+    Interleaved stream of greater, equals, and divides chain facts plus negatives.
+    """
+    greater = generate_greater_chain_stream(max_n, seed)
+    greater_neg = generate_greater_negatives(max_n, seed + 1, n_negatives)
+    equals = generate_equals_stream(max_n, seed + 10)
+    equals_neg = generate_equals_negatives(max_n, seed + 11, n_negatives)
+    divides = generate_mixed_divisibility_chain_stream(bases, length, seed + 20)
+    divides_neg = generate_divides_negatives(bases, length, seed + 21, n_negatives)
+
+    stream = greater + greater_neg + equals + equals_neg + divides + divides_neg
+    rng = random.Random(seed + 30)
+    rng.shuffle(stream)
+    return stream
+
+
+def generate_mixed_chain_quiz(
+    max_n: int,
+    bases: List[int],
+    length: int,
+    stream_seed: int,
+    quiz_seed: int,
+    n_negatives: int = 3,
+    equals_n_questions: int = 20,
+    n_greater_questions: Optional[int] = None,
+) -> List[Tuple[Fact, str]]:
+    """
+    Combined quiz over greater, equals, and divides unique pairs plus stream negatives.
+    Negatives are derived from stream_seed so they match the mixed stream.
+    """
+    greater_neg = generate_greater_negatives(max_n, stream_seed + 1, n_negatives)
+    equals_neg = generate_equals_negatives(max_n, stream_seed + 11, n_negatives)
+    divides_neg = generate_divides_negatives(bases, length, stream_seed + 21, n_negatives)
+
+    quiz = generate_greater_transitive_quiz(
+        max_n=max_n,
+        seed=quiz_seed,
+        false_sources=greater_neg,
+        n_questions=n_greater_questions,
+    )
+    quiz.extend(
+        generate_equals_quiz(
+            max_n=max_n,
+            n_questions=equals_n_questions,
+            seed=quiz_seed + 10,
+            false_sources=equals_neg,
+        )
+    )
+    quiz.extend(
+        generate_mixed_divisibility_transitive_quiz(
+            bases=bases,
+            length=length,
+            seed=quiz_seed + 20,
+            false_sources=divides_neg,
+        )
+    )
+
+    rng = random.Random(quiz_seed + 30)
     rng.shuffle(quiz)
     return quiz
 

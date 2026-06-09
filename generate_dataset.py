@@ -8,8 +8,6 @@ Usage:
 import random
 from pathlib import Path
 from data import (
-    generate_greater_stream,
-    generate_greater_recall_quiz,
     generate_greater_chain_stream,
     generate_greater_transitive_quiz,
     generate_greater_negatives,
@@ -19,19 +17,37 @@ from data import (
     generate_equals_negatives,
     generate_mixed_divisibility_chain_stream,
     generate_mixed_divisibility_transitive_quiz,
+    generate_mixed_chain_stream,
+    generate_mixed_chain_quiz,
     save_stream,
     save_quiz,
 )
 
 DATASETS = {
-    "small": {"max_n": 10, "n_quiz": 30, "stream_seed": 42, "quiz_seed": 99},
-    "large": {"max_n": 15, "n_quiz": 50, "stream_seed": 42, "quiz_seed": 99},
     "greater_chain_small": {"max_n": 10, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
     "greater_chain_large": {"max_n": 50, "n_quiz": 500, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
     "divisibility_chain_small": {"bases": [2, 3], "length": 6, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
     "divisibility_chain_large": {"bases": [2, 3, 5, 7], "length": 12, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
     "equals_chain_small": {"max_n": 10, "n_quiz": 30, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
     "equals_chain_large": {"max_n": 50, "n_quiz": 150, "n_negatives": 3, "stream_seed": 42, "quiz_seed": 99},
+    "mixed_chain_small": {
+        "max_n": 10,
+        "bases": [2, 3],
+        "length": 6,
+        "n_negatives": 3,
+        "stream_seed": 42,
+        "quiz_seed": 99,
+    },
+    "mixed_chain_large": {
+        "max_n": 30,
+        "bases": [2, 3, 5, 7],
+        "length": 9,
+        "n_negatives": 3,
+        "n_quiz": 250,
+        "equals_n_questions": 70,
+        "stream_seed": 42,
+        "quiz_seed": 99,
+    },
 }
 
 
@@ -101,16 +117,27 @@ def build_dataset(name, cfg):
             false_sources=negatives,
         )
 
-    else:
-        stream = generate_greater_stream(
+    elif name.startswith("mixed_chain"):
+        stream = generate_mixed_chain_stream(
             max_n=cfg["max_n"],
+            bases=cfg["bases"],
+            length=cfg["length"],
             seed=cfg["stream_seed"],
+            n_negatives=cfg.get("n_negatives", 3),
         )
-        quiz = generate_greater_recall_quiz(
+        quiz = generate_mixed_chain_quiz(
             max_n=cfg["max_n"],
-            n_questions=cfg["n_quiz"],
-            seed=cfg["quiz_seed"],
+            bases=cfg["bases"],
+            length=cfg["length"],
+            stream_seed=cfg["stream_seed"],
+            quiz_seed=cfg["quiz_seed"],
+            n_negatives=cfg.get("n_negatives", 3),
+            equals_n_questions=cfg.get("equals_n_questions", 20),
+            n_greater_questions=cfg.get("n_quiz"),
         )
+
+    else:
+        raise ValueError(f"Unknown dataset: {name}")
 
     return stream, quiz
 

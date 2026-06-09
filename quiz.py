@@ -51,7 +51,12 @@ def _committed_rule_names(agent: Agent) -> Tuple[str, ...]:
         return ()
     names = []
     for rule in rules:
-        names.append(rule.name if getattr(rule, "name", None) else str(rule))
+        rname = rule.name if getattr(rule, "name", None) else str(rule)
+        pred = getattr(getattr(rule, "conclusion", None), "predicate", None)
+        if pred:
+            names.append(f"{pred}:{rname}")
+        else:
+            names.append(rname)
     return tuple(names)
 
 

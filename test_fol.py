@@ -10,10 +10,12 @@ from quiz import run_quiz
 #   divisibility_chain_large:   47  (44 chain links + 3 not_divides)
 #   equals_chain_small:         10
 #   equals_chain_large:         50
+#   mixed_chain_small:          40  (38 stream facts: greater + equals + divides)
+#   mixed_chain_large:         105  (100 stream facts)
 # Greater/divisibility quizzes use all unique transitive pairs + stream negatives.
 
-DATASET = Path("datasets/greater_chain_large")
-FACT_LIMIT = 52
+DATASET = Path("datasets/mixed_chain_large")
+FACT_LIMIT = 50
 SHOW_UNKNOWNS = True
 
 stream = load_stream(DATASET / "stream.json")

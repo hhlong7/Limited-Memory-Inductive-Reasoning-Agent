@@ -6,8 +6,7 @@ from agents import SimpleAgent, RandomAgent, ImportanceAgent, FOLCompressionAgen
 from quiz import run_quiz
 
 
-FACT_LIMIT = 20     # increase to 40 for better performance tho
-                    # 100 for better perf with large datasets
+FACT_LIMIT = 75
 
 def helper_run(agent_name: str, agent, stream, quiz_questions, show_unknowns: bool = False):
     # a helper function to run the quiz for any agent, js call it
@@ -41,7 +40,7 @@ def helper_run(agent_name: str, agent, stream, quiz_questions, show_unknowns: bo
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stream", default="datasets/small", help="path to dataset directory")
+    parser.add_argument("--stream", default="datasets/greater_chain_small", help="path to dataset directory")
     parser.add_argument(
         "--show-unknowns",
         action="store_true",
