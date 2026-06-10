@@ -28,6 +28,19 @@ AGENTS: List[Tuple[str, Callable[[int], object]]] = [
 AGENT_ORDER = {name: idx for idx, (name, _) in enumerate(AGENTS)}
 
 
+def dedupe_rows(rows: List[dict]) -> List[dict]:
+    """Keep the first occurrence for each (dataset, fact_limit, agent) key."""
+    seen = set()
+    deduped = []
+    for row in rows:
+        key = (row["dataset"], row["fact_limit"], row["agent"])
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(row)
+    return deduped
+
+
 def run_agent(agent_name: str, factory: Callable[[int], object], dataset_dir: Path, fact_limit: int):
     # Quiet mode: no agent.show() output.
     stream = load_stream(dataset_dir / "stream.json")
@@ -95,6 +108,8 @@ def main():
             for agent_name, factory in AGENTS:
                 row = run_agent(agent_name, factory, dataset_dir, fact_limit)
                 rows.append(row)
+
+    rows = dedupe_rows(rows)
 
     dataset_order = {name: idx for idx, name in enumerate(SWEEP_DATASETS.keys())}
     rows.sort(
